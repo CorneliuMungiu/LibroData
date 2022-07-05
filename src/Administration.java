@@ -9,7 +9,7 @@ public class Administration {
         this.languages = languages;
     }
 
-    //Cauta un PublishingRetailer dupa ID si reintoarce acel PublishingRetailer
+    //Cauta un PublishingRetailer dupa ID si reintoarce acel PublishingRetailer.
     public static PublishingRetailer returnRetailer(ArrayList<PublishingRetailer> retailers, int publishingRetailerID){
         PublishingRetailer retailer = null;
         for (PublishingRetailer publishingRetailer : retailers) {

@@ -6,8 +6,11 @@ import java.util.Date;
 
 public class ReadFromFile {
 
-    //Creeaza lista cu toate:
-    //Book,Language,Author,EditorialGroup,PublishingBrand,PublishingRetailer,Country
+    /**
+     * @param file Fisierul din care se citeste.
+     * @param type : authors,books,languages,editorial-groups,publishing-brands,publishing-retailers,countries.
+     * @return In dependenta de tipul ales returneaza o lista de obiecte de tipul type.
+     */
     public static ArrayList<Object> InitLists(File file, String type) {
         ArrayList<Object> obj = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file))){
@@ -65,7 +68,12 @@ public class ReadFromFile {
         return obj;
     }
 
-    //Adauga autori unei carti
+    /**
+     * Citeste din fisier (format: BookID###AuthorID) si adauga cartii cu ID-ul BookID autorul cu ID-ul AuthorID.
+     * @param file Fisierul din care se citeste.
+     * @param books Lista de carti.
+     * @param authors Lista de autori.
+     */
     public static void addAuthorsToBook(File file, ArrayList<Book> books, ArrayList<Author> authors){
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
@@ -82,7 +90,12 @@ public class ReadFromFile {
         }
     }
 
-    //Adauga carti unui EditorialGroup
+    /**
+     * Citeste din fisier (format: GroupId###BookId) si adauga editorialGroup-ului cu ID-ul GroupID cartea cu ID-ul BookID.
+     * @param file Fisierul din care se citeste.
+     * @param books Lista de carti.
+     * @param editorialGroups Lista de editorialGroups.
+     */
     public static void addBooksToEG(File file, ArrayList<Book> books, ArrayList<EditorialGroup> editorialGroups){
         try (BufferedReader br = new BufferedReader(new FileReader(file))){
             String line;
@@ -99,7 +112,12 @@ public class ReadFromFile {
         }
     }
 
-    //Adauga carti unui PublishingBrand
+    /**
+     * Citeste din fisier (format: PublisherId###BookId) si adauga publishingBrand-ului cu ID-ul PublisherID cartea cu ID-ul BookID.
+     * @param file Fisierul din care se citeste.
+     * @param books Lista de carti.
+     * @param publishingBrands Lista de publishingBrands.
+     */
     public static void addBooksToPB(File file, ArrayList<Book> books, ArrayList<PublishingBrand> publishingBrands){
         try (BufferedReader br = new BufferedReader(new FileReader(file))){
             String line;
@@ -117,6 +135,16 @@ public class ReadFromFile {
     }
 
     //Initializeaza campurile PublishingRetailer
+
+    /**
+     * @param file Fisierul din care se citeste.
+     * @param publishingRetailers Lista publishingRetailers.
+     * @param countries Lista de tari.
+     * @param books Lista de carti.
+     * @param editorialGroups Lista de editorialGroups.
+     * @param publishingBrands Lista de publishingBrands.
+     * @param type : Countries, Books, EditorialGroups, PublishingBrands
+     */
     public static void addListsToPR(File file, ArrayList<PublishingRetailer> publishingRetailers,
                                     ArrayList<Countries> countries,ArrayList<Book> books ,ArrayList<EditorialGroup> editorialGroups,
                                     ArrayList<PublishingBrand> publishingBrands ,String type){

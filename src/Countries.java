@@ -27,6 +27,11 @@ public class Countries {
         this.ID = ID;
     }
 
+    /**
+     * @param o Obiect de tip Countries
+     * @return Returneaza true daca ID-ul obiectului "o" este egal cu ID-ului obiectului care apeleaza metoda si false in
+     * caz contrar.
+     */
     @Override
     public boolean equals(Object o){
         if(!(o instanceof Countries))

@@ -39,6 +39,11 @@ public class PublishingBrand implements IPublishArtifact{
         this.ID = ID;
     }
 
+    /**
+     * @param o Obiect de tip PublishingBrand.
+     * @return Returneaza true daca ID-ul obiectului "o" este egal cu ID-ului obiectului care apeleaza metoda si false in
+     * caz contrar.
+     */
     @Override
     public boolean equals(Object o){
         if(!(o instanceof PublishingBrand))
@@ -46,6 +51,9 @@ public class PublishingBrand implements IPublishArtifact{
         return (this.getID() == ((PublishingBrand) o).getID());
     }
 
+    /**
+     * @return Returneaza un String in format "XML" care pastreaza toata informatia despre PublishingBrand.
+     */
     @Override
     public String Publish() {
         String s;

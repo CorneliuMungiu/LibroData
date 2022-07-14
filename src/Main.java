@@ -10,27 +10,40 @@ public class Main {
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_PURPLE = "\u001B[35m";
 
-    //Afiseaza numele tuturor cartilor dintr-o lista de carti
+    /**
+     * Afiseaza la consola numele fiecarei carti din lista.
+     * @param books Lista de carti.
+     */
     public static void  AfiBooks(ArrayList<Book> books){
         for (Book book : books) {
             System.out.println(book.getName());
         }
     }
 
-    //Afiseaza toate numele limbilor dintr-o lista de limbi
+    /**
+     * Afiseaza la consola numele fiecarei limbi.
+     * @param languages Lista de limbi.
+     */
     public static void AfiLanguages(ArrayList<Language> languages){
         for (Language language : languages) {
             System.out.println(language.getName());
         }
     }
 
-    //Afiseaza numele tuturor tarilor dintr-o lista de tari
+    /**
+     * Afiseaza la consola numele fiecarei tari.
+     * @param countries Lista de tari.
+     */
     public static void AfiCountries(ArrayList<Countries> countries){
         for (Countries country : countries) {
             System.out.println(country.getCountryCode());
         }
     }
 
+    /**
+     * Testeaza fiecare metoda
+     * @param args
+     */
     public static void main(String[] args) {
         ArrayList<Object> obj;
 

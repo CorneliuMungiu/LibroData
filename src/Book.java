@@ -100,14 +100,21 @@ public class Book implements IPublishArtifact {
         this.ID = ID;
     }
 
+    /**
+     * @param o Obiect de tip Book
+     * @return Returneaza true daca ID-ul obiectului "o" este egal cu ID-ului obiectului care apeleaza metoda si false in
+     * caz contrar.
+     */
     @Override
-    //Overide metodei equal pentru a compara 2 carti numai dupa ID
     public boolean equals(Object o){
         if(!(o instanceof Book))
             return false;
         return (this.getID() == ((Book) o).getID());
     }
 
+    /**
+     * @return Returneaza un String in format "XML" care pastreaza toata informatia despre carte.
+     */
     @Override
     public String Publish() {
         StringBuilder s;

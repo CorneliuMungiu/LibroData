@@ -9,7 +9,12 @@ public class Administration {
         this.languages = languages;
     }
 
-    //Cauta un PublishingRetailer dupa ID si reintoarce acel PublishingRetailer.
+    /**
+     * Cauta un PublishingRetailer dupa ID si reintoarce acel PublishingRetailer
+     * @param retailers Lista de retaileri
+     * @param publishingRetailerID ID-ul publishingRetailer-ului cautat
+     * @return retailerul cu ID-ul publishingRetailerID
+     */
     public static PublishingRetailer returnRetailer(ArrayList<PublishingRetailer> retailers, int publishingRetailerID){
         PublishingRetailer retailer = null;
         for (PublishingRetailer publishingRetailer : retailers) {
@@ -20,7 +25,10 @@ public class Administration {
         return retailer;
     }
 
-    //Intoarce toate cartile unui PublishingRetailer dupa ID
+    /**
+     * @param publishingRetailerID ID-ul publishingRetailer-ului
+     * @return Cartile publishingRetailer-ului cu ID-ul publishingRetailerID
+     */
     public ArrayList<Book> getBooksForPublishingRetailerID(int publishingRetailerID){
         PublishingRetailer retailer = returnRetailer(this.retailers,publishingRetailerID);//Retailerul cu ID-ul publishingRetailerID
         ArrayList<Book> allBooks = new ArrayList<>();//Lista de carti a retailerului care va fi returnata la final
@@ -52,7 +60,10 @@ public class Administration {
         return allBooks;
     }
 
-    //Returneaza limbile in care sunt publicate cartile unui retailer
+    /**
+     * @param publishingRetailerID ID-ul publishingRetailer-ului
+     * @return Limbile in care sunt publicate cartile unui retailer
+     */
     public ArrayList<Language> getLanguagesForPublishingRetailerID(int publishingRetailerID){
         ArrayList<Language> allLanguages = new ArrayList<>();//Lista de limbi care va fi returnata la final
         ArrayList<Book> allBooks = getBooksForPublishingRetailerID(publishingRetailerID);//returneaza toate cartile retailerului
@@ -68,7 +79,10 @@ public class Administration {
         return allLanguages;
     }
 
-    //Reintoarce tarile in care a ajuns o carte
+    /**
+     * @param bookID ID-ul cartii
+     * @return Tarile in care a ajus o carte
+     */
     public ArrayList<Countries> getCountriesForBookID(int bookID){
         ArrayList<Countries> allCountries = new ArrayList<>();//lista de tari care va fi returnata la sfarsit
         for (PublishingRetailer retailer : retailers) {//parcurg toti retailerii
@@ -86,7 +100,11 @@ public class Administration {
         return allCountries;
     }
 
-    //Reintoarce o lista de carti comune a 2 retaileri
+    /**
+     * @param retailerID1 ID-ul unui retailer
+     * @param retailerID2 ID-ul unui retailer
+     * @return Lista cartilor comune a retailer-ului cu retailerID1 si retailer-ului cu retailerID2
+     */
     public ArrayList<Book> getCommonBooksForRetailerIDs(int retailerID1, int retailerID2){
         ArrayList<Book> bookRetailer1 = getBooksForPublishingRetailerID(retailerID1);//Returneaza toate cartile retailerului 1
         ArrayList<Book> bookRetailer2 = getBooksForPublishingRetailerID(retailerID2);//Returneaza toate cartile retailerului 2
@@ -99,7 +117,11 @@ public class Administration {
         return allBooks;
     }
 
-    //Reintoarce o lista de carti a celor 2 retaileri(fara repetari)
+    /**
+     * @param retailerID1 ID-ul unui retailer
+     * @param retailerID2 ID-ul unui retailer
+     * @return Returneaza o lista de carti a celor 2 retaileri (fara repetari)
+     */
     public ArrayList<Book> getAllBooksForRetailerIDs(int retailerID1, int retailerID2){
         ArrayList<Book> allBooks = getBooksForPublishingRetailerID(retailerID1);//Atribui listei finale toate cartile retailerului 1
         ArrayList<Book> bookRetailer2 = getBooksForPublishingRetailerID(retailerID2);//Cartile retailerului 2
